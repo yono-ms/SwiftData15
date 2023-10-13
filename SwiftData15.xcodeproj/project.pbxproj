@@ -20,6 +20,7 @@
 		977EB2F52AD9EE6100403E96 /* Tutorial1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F42AD9EE6100403E96 /* Tutorial1Screen.swift */; };
 		977EB2F72AD9F00700403E96 /* Tutorial2Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */; };
 		977EB2F92AD9F42B00403E96 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F82AD9F42B00403E96 /* HomeScreen.swift */; };
+		977EB2FB2AD9F79800403E96 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2FA2AD9F79800403E96 /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		977EB2F42AD9EE6100403E96 /* Tutorial1Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1Screen.swift; sourceTree = "<group>"; };
 		977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2Screen.swift; sourceTree = "<group>"; };
 		977EB2F82AD9F42B00403E96 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		977EB2FA2AD9F79800403E96 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,10 +147,11 @@
 		977EB2EF2AD9E94A00403E96 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				977EB2F82AD9F42B00403E96 /* HomeScreen.swift */,
 				977EB2F02AD9E97100403E96 /* SampleItemScreen.swift */,
+				977EB2FA2AD9F79800403E96 /* SplashScreen.swift */,
 				977EB2F42AD9EE6100403E96 /* Tutorial1Screen.swift */,
 				977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */,
-				977EB2F82AD9F42B00403E96 /* HomeScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -283,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977EB2FB2AD9F79800403E96 /* SplashScreen.swift in Sources */,
 				977EB2F72AD9F00700403E96 /* Tutorial2Screen.swift in Sources */,
 				977EB2F32AD9EAC700403E96 /* ScreenPath.swift in Sources */,
 				977EB2C62AD9E40F00403E96 /* ContentView.swift in Sources */,

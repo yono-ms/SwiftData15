@@ -11,26 +11,20 @@ import SwiftData
 
 struct ContentView: View {
 
-    @State private var path: [ScreenPath] = []
+    @State private var path: [ScreenPath] = [.splash]
 
     var body: some View {
         NavigationStack(path: $path) {
             VStack(spacing: 16) {
                 Text("loading...")
-                Button("goto splash") {
-                    path.append(.splash)
-                }
-                Button("goto tutorial") {
-                    path.append(.tutorial1)
-                }
             }
             .navigationDestination(for: ScreenPath.self) { screen in
                 switch screen {
                 case .splash:
-                    SampleItemScreen()
+                    SplashScreen(path: $path)
+                        .navigationBarBackButtonHidden()
                 case .home:
                     HomeScreen()
-                        .navigationTitle(screen.title)
                         .navigationBarBackButtonHidden()
                 case .comm:
                     SampleItemScreen()
@@ -40,12 +34,16 @@ struct ContentView: View {
                     SampleItemScreen()
                 case .tutorial1:
                     Tutorial1Screen(path: $path)
-                        .navigationTitle(screen.title)
                         .navigationBarBackButtonHidden()
                 case .tutorial2:
                     Tutorial2Screen(path: $path)
-                        .navigationTitle(screen.title)
                 }
+            }
+            .onAppear {
+                print("ContentView onAppear")
+            }
+            .onDisappear {
+                print("ContentView onDisappear")
             }
         }
     }
