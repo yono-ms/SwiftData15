@@ -15,6 +15,11 @@
 		977EB2D72AD9E41400403E96 /* SwiftData15Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2D62AD9E41400403E96 /* SwiftData15Tests.swift */; };
 		977EB2E12AD9E41400403E96 /* SwiftData15UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2E02AD9E41400403E96 /* SwiftData15UITests.swift */; };
 		977EB2E32AD9E41400403E96 /* SwiftData15UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2E22AD9E41400403E96 /* SwiftData15UITestsLaunchTests.swift */; };
+		977EB2F12AD9E97100403E96 /* SampleItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F02AD9E97100403E96 /* SampleItemScreen.swift */; };
+		977EB2F32AD9EAC700403E96 /* ScreenPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F22AD9EAC700403E96 /* ScreenPath.swift */; };
+		977EB2F52AD9EE6100403E96 /* Tutorial1Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F42AD9EE6100403E96 /* Tutorial1Screen.swift */; };
+		977EB2F72AD9F00700403E96 /* Tutorial2Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */; };
+		977EB2F92AD9F42B00403E96 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB2F82AD9F42B00403E96 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +51,11 @@
 		977EB2DC2AD9E41400403E96 /* SwiftData15UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftData15UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		977EB2E02AD9E41400403E96 /* SwiftData15UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftData15UITests.swift; sourceTree = "<group>"; };
 		977EB2E22AD9E41400403E96 /* SwiftData15UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftData15UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		977EB2F02AD9E97100403E96 /* SampleItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleItemScreen.swift; sourceTree = "<group>"; };
+		977EB2F22AD9EAC700403E96 /* ScreenPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenPath.swift; sourceTree = "<group>"; };
+		977EB2F42AD9EE6100403E96 /* Tutorial1Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial1Screen.swift; sourceTree = "<group>"; };
+		977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutorial2Screen.swift; sourceTree = "<group>"; };
+		977EB2F82AD9F42B00403E96 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +106,11 @@
 		977EB2C22AD9E40E00403E96 /* SwiftData15 */ = {
 			isa = PBXGroup;
 			children = (
+				977EB2EF2AD9E94A00403E96 /* Screen */,
 				977EB2C32AD9E40E00403E96 /* SwiftData15App.swift */,
 				977EB2C52AD9E40F00403E96 /* ContentView.swift */,
 				977EB2C72AD9E40F00403E96 /* Item.swift */,
+				977EB2F22AD9EAC700403E96 /* ScreenPath.swift */,
 				977EB2C92AD9E41300403E96 /* Assets.xcassets */,
 				977EB2CB2AD9E41300403E96 /* Preview Content */,
 			);
@@ -128,6 +140,17 @@
 				977EB2E22AD9E41400403E96 /* SwiftData15UITestsLaunchTests.swift */,
 			);
 			path = SwiftData15UITests;
+			sourceTree = "<group>";
+		};
+		977EB2EF2AD9E94A00403E96 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				977EB2F02AD9E97100403E96 /* SampleItemScreen.swift */,
+				977EB2F42AD9EE6100403E96 /* Tutorial1Screen.swift */,
+				977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */,
+				977EB2F82AD9F42B00403E96 /* HomeScreen.swift */,
+			);
+			path = Screen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,9 +283,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				977EB2F72AD9F00700403E96 /* Tutorial2Screen.swift in Sources */,
+				977EB2F32AD9EAC700403E96 /* ScreenPath.swift in Sources */,
 				977EB2C62AD9E40F00403E96 /* ContentView.swift in Sources */,
 				977EB2C82AD9E40F00403E96 /* Item.swift in Sources */,
+				977EB2F92AD9F42B00403E96 /* HomeScreen.swift in Sources */,
+				977EB2F12AD9E97100403E96 /* SampleItemScreen.swift in Sources */,
 				977EB2C42AD9E40F00403E96 /* SwiftData15App.swift in Sources */,
+				977EB2F52AD9EE6100403E96 /* Tutorial1Screen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

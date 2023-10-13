@@ -10,47 +10,42 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
-    @Environment(\.modelContext) private var modelContext
-    @Query private var items: [Item]
+
+    @State private var path: [ScreenPath] = []
 
     var body: some View {
-        NavigationSplitView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
-                    }
+        NavigationStack(path: $path) {
+            VStack(spacing: 16) {
+                Text("loading...")
+                Button("goto splash") {
+                    path.append(.splash)
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
+                Button("goto tutorial") {
+                    path.append(.tutorial1)
                 }
             }
-        } detail: {
-            Text("Select an item")
-        }
-    }
-
-    private func addItem() {
-        withAnimation {
-            let newItem = Item(timestamp: Date())
-            modelContext.insert(newItem)
-        }
-    }
-
-    private func deleteItems(offsets: IndexSet) {
-        withAnimation {
-            for index in offsets {
-                modelContext.delete(items[index])
+            .navigationDestination(for: ScreenPath.self) { screen in
+                switch screen {
+                case .splash:
+                    SampleItemScreen()
+                case .home:
+                    HomeScreen()
+                        .navigationTitle(screen.title)
+                        .navigationBarBackButtonHidden()
+                case .comm:
+                    SampleItemScreen()
+                case .user:
+                    SampleItemScreen()
+                case .repos:
+                    SampleItemScreen()
+                case .tutorial1:
+                    Tutorial1Screen(path: $path)
+                        .navigationTitle(screen.title)
+                        .navigationBarBackButtonHidden()
+                case .tutorial2:
+                    Tutorial2Screen(path: $path)
+                        .navigationTitle(screen.title)
+                }
             }
         }
     }
@@ -58,5 +53,4 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: Item.self, inMemory: true)
 }
