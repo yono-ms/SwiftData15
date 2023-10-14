@@ -24,4 +24,11 @@ final class GitHubAPITests: XCTestCase {
         print("\(dictionary)")
         XCTAssertFalse(dictionary.isEmpty)
     }
+    
+    func testGetUserModel() async throws {
+        let model = try await gitHubGetUserModel(user: "google")
+        print("----")
+        print("\(model)")
+        XCTAssert(model.login == "google")
+    }
 }

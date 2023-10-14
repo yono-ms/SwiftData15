@@ -28,6 +28,8 @@
 		977EB3072ADB49AB00403E96 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB3062ADB49AB00403E96 /* GitHubAPI.swift */; };
 		977EB3092ADB4CC400403E96 /* GitHubAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB3082ADB4CC400403E96 /* GitHubAPITests.swift */; };
 		977EB30A2ADB50BA00403E96 /* GitHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB3062ADB49AB00403E96 /* GitHubAPI.swift */; };
+		977EB30D2ADB5CBB00403E96 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB30C2ADB5CBB00403E96 /* UserModel.swift */; };
+		977EB30E2ADB5EE800403E96 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977EB30C2ADB5CBB00403E96 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +72,7 @@
 		977EB3012ADA75D200403E96 /* UserHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserHistory.swift; sourceTree = "<group>"; };
 		977EB3062ADB49AB00403E96 /* GitHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPI.swift; sourceTree = "<group>"; };
 		977EB3082ADB4CC400403E96 /* GitHubAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAPITests.swift; sourceTree = "<group>"; };
+		977EB30C2ADB5CBB00403E96 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 		977EB2C22AD9E40E00403E96 /* SwiftData15 */ = {
 			isa = PBXGroup;
 			children = (
+				977EB30B2ADB5CA100403E96 /* APIModel */,
 				977EB2EF2AD9E94A00403E96 /* Screen */,
 				977EB2C32AD9E40E00403E96 /* SwiftData15App.swift */,
 				977EB2C52AD9E40F00403E96 /* ContentView.swift */,
@@ -172,6 +176,14 @@
 				977EB2F62AD9F00700403E96 /* Tutorial2Screen.swift */,
 			);
 			path = Screen;
+			sourceTree = "<group>";
+		};
+		977EB30B2ADB5CA100403E96 /* APIModel */ = {
+			isa = PBXGroup;
+			children = (
+				977EB30C2ADB5CBB00403E96 /* UserModel.swift */,
+			);
+			path = APIModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +330,7 @@
 				977EB2C62AD9E40F00403E96 /* ContentView.swift in Sources */,
 				977EB2C82AD9E40F00403E96 /* Item.swift in Sources */,
 				977EB2FF2ADA73BB00403E96 /* UserScreen.swift in Sources */,
+				977EB30D2ADB5CBB00403E96 /* UserModel.swift in Sources */,
 				977EB2F92AD9F42B00403E96 /* HomeScreen.swift in Sources */,
 				977EB3022ADA75D200403E96 /* UserHistory.swift in Sources */,
 				977EB2F12AD9E97100403E96 /* SampleItemScreen.swift in Sources */,
@@ -332,6 +345,7 @@
 			files = (
 				977EB2D72AD9E41400403E96 /* SwiftData15Tests.swift in Sources */,
 				977EB30A2ADB50BA00403E96 /* GitHubAPI.swift in Sources */,
+				977EB30E2ADB5EE800403E96 /* UserModel.swift in Sources */,
 				977EB3092ADB4CC400403E96 /* GitHubAPITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

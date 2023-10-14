@@ -25,3 +25,21 @@ func gitHubGetUser(user: String) async throws -> [String : Any] {
         throw error
     }
 }
+
+func gitHubGetUserModel(user: String) async throws -> UserModel {
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    let response = await AF.request("https://api.github.com/users/\(user)")
+        .validate(statusCode: 200 ..< 300)
+        .serializingDecodable(UserModel.self, decoder: decoder)
+        .response
+    debugPrint(response)
+    switch response.result {
+    case .success(let data):
+        print("gitHubGetUserModel success")
+        return data
+    case .failure(let error):
+        print("gitHubGetUserModel failure")
+        throw error
+    }
+}
