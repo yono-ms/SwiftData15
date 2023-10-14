@@ -10,6 +10,8 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \UserHistory.timestamp, order: .reverse) private var histories: [UserHistory]
     
     @AppStorage("Tutorial") var tutorial = true
 
@@ -72,4 +74,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
+        .modelContainer(for: UserHistory.self, inMemory: true)
 }
