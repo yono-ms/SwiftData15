@@ -10,10 +10,10 @@ import SwiftUI
 
 struct SplashScreen: View {
     
-    @Binding var path: [ScreenPath]
+    var onFinish: () -> Void
     
     var body: some View {
-        SplashContent()
+        Text("SPLASH")
             .task {
                 print("task START")
                 do {
@@ -21,19 +21,12 @@ struct SplashScreen: View {
                 } catch {
                     debugPrint(error)
                 }
-                path.removeAll()
-                path.append(.tutorial1)
                 print("task END")
+                onFinish()
             }
     }
 }
 
-struct SplashContent: View {
-    var body: some View {
-        Text("SPLASH")
-    }
-}
-
 #Preview {
-    SplashContent()
+    SplashScreen(onFinish: {})
 }

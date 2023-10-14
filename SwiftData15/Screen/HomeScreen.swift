@@ -9,11 +9,23 @@
 import SwiftUI
 
 struct HomeScreen: View {
+
+    var onClick: (ScreenPath) -> Void
+    
     var body: some View {
-        Text("HOME")
+        VStack(spacing: 16) {
+            Text("HOME")
+            Button("COMM") {
+                onClick(.comm)
+            }
+            Button("goto Sample") {
+                onClick(.sample)
+            }
+            Spacer()
+        }
     }
 }
 
 #Preview {
-    HomeScreen()
+    HomeScreen(onClick: {_ in })
 }

@@ -10,17 +10,8 @@ import SwiftUI
 
 struct Tutorial1Screen: View {
     
-    @Binding var path: [ScreenPath]
-    
-    var body: some View {
-        Tutorial1Content {
-            path.append(.tutorial2)
-        }
-    }
-}
-
-struct Tutorial1Content: View {
     var onNext: () -> Void
+    
     var body: some View {
         VStack(spacing: 16) {
             Text("TUTORIAL STEP 1")
@@ -32,5 +23,5 @@ struct Tutorial1Content: View {
 }
 
 #Preview {
-    Tutorial1Content {}
+    Tutorial1Screen {}
 }

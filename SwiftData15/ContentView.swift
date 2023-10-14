@@ -10,6 +10,8 @@ import SwiftUI
 import SwiftData
 
 struct ContentView: View {
+    
+    @AppStorage("Tutorial") var tutorial = true
 
     @State private var path: [ScreenPath] = [.splash]
 
@@ -21,22 +23,41 @@ struct ContentView: View {
             .navigationDestination(for: ScreenPath.self) { screen in
                 switch screen {
                 case .splash:
-                    SplashScreen(path: $path)
-                        .navigationBarBackButtonHidden()
+                    SplashScreen {
+                        path.removeAll()
+                        if (tutorial) {
+                            path.append(.tutorial1)
+                        } else {
+                            path.append(.home)
+                        }
+                    }
+                    .navigationBarBackButtonHidden()
                 case .home:
-                    HomeScreen()
-                        .navigationBarBackButtonHidden()
+                    HomeScreen { screen in
+                        path.append(screen)
+                    }
+                    .navigationBarBackButtonHidden()
                 case .comm:
-                    SampleItemScreen()
+                    CommScreen {
+                        path.append(.user)
+                    }
                 case .user:
-                    SampleItemScreen()
+                    UserScreen()
                 case .repos:
                     SampleItemScreen()
                 case .tutorial1:
-                    Tutorial1Screen(path: $path)
-                        .navigationBarBackButtonHidden()
+                    Tutorial1Screen {
+                        path.append(.tutorial2)
+                    }
+                    .navigationBarBackButtonHidden()
                 case .tutorial2:
-                    Tutorial2Screen(path: $path)
+                    Tutorial2Screen {
+                        tutorial = false
+                        path.removeAll()
+                        path.append(.home)
+                    }
+                case .sample:
+                    SampleItemScreen()
                 }
             }
             .onAppear {

@@ -14,6 +14,7 @@ struct SwiftData15App: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
+            UserHistory.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 

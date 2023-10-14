@@ -9,7 +9,7 @@
 import Foundation
 
 enum ScreenPath: String {
-    case splash, home, comm, user, repos, tutorial1, tutorial2
+    case splash, home, comm, user, repos, tutorial1, tutorial2, sample
     var title: String {
         switch self {
         case .splash:
@@ -26,6 +26,8 @@ enum ScreenPath: String {
             return "TUTORIAL 1"
         case .tutorial2:
             return "TUTORIAL 2"
+        case .sample:
+            return "SAMPLE"
         }
     }
 }
