@@ -8,6 +8,7 @@
 
 import SwiftUI
 import SwiftData
+import Alamofire
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
@@ -42,6 +43,16 @@ struct ContentView: View {
                 case .comm:
                     CommScreen {
                         path.append(.user)
+                        guard let user = histories.first?.user else {
+                            return
+                        }
+                        Task {
+                            do {
+                                let dictionary = try await gitHubGetUser(user: user)
+                            } catch {
+                                print(error)
+                            }
+                        }
                     }
                 case .user:
                     UserScreen()
