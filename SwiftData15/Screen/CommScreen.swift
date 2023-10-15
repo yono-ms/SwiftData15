@@ -11,7 +11,7 @@ import SwiftData
 
 struct CommScreen: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \UserHistory.timestamp, order: .reverse) private var histories: [UserHistory]
+    @Query(sort: \History.timestamp, order: .reverse) private var histories: [History]
     
     var onGet: () -> Void
     
@@ -55,7 +55,7 @@ struct CommScreen: View {
                 debugPrint(error)
             }
         } else {
-            let history = UserHistory(user: user, timestamp: Date())
+            let history = History(user: user, timestamp: Date())
             modelContext.insert(history)
         }
     }
@@ -63,5 +63,5 @@ struct CommScreen: View {
 
 #Preview {
     CommScreen(onGet: {})
-        .modelContainer(for: UserHistory.self, inMemory: true)
+        .modelContainer(for: History.self, inMemory: true)
 }

@@ -10,8 +10,8 @@ import Foundation
 import SwiftData
 
 @Model
-final class UserHistory {
-    var user: String
+final class History {
+    @Attribute(.unique) var user: String
     var timestamp: Date
     
     init(user: String, timestamp: Date) {

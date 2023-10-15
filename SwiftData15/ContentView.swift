@@ -12,7 +12,9 @@ import Alamofire
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query(sort: \UserHistory.timestamp, order: .reverse) private var histories: [UserHistory]
+    @Query(sort: \History.timestamp, order: .reverse) private var histories: [History]
+    @Query() private var users: [User]
+    @Query() private var repos: [Repo]
     
     @AppStorage("Tutorial") var tutorial = true
 
@@ -48,7 +50,9 @@ struct ContentView: View {
                         }
                         Task {
                             do {
-                                let dictionary = try await gitHubGetUser(user: user)
+                                let apiUser = try await gitHubGetUser(user: user)
+                                let apiRepos = try await gitHubGetRepos(url: apiUser.reposUrl)
+                                updateUserAndRepos(apiUser: apiUser, apiRepos: apiRepos)
                             } catch {
                                 print(error)
                             }
@@ -81,9 +85,37 @@ struct ContentView: View {
             }
         }
     }
+    
+    private func updateUserAndRepos(apiUser: ApiUser, apiRepos: [ApiRepo]) {
+        let user = updateOrInsertUser(apiUser: apiUser)
+        apiRepos.forEach { apiRepo in
+            guard let repo = repos.first(where: { e in e.id == apiRepo.id }) else {
+                let repo = Repo(model: apiRepo)
+                modelContext.insert(repo)
+                return
+            }
+            repo.name = apiRepo.name
+            repo.updatedAt = apiRepo.updatedAt
+            repo.user = user
+        }
+    }
+    
+    private func updateOrInsertUser(apiUser: ApiUser) -> User {
+        guard let user = users.first(where: { e in e.id == apiUser.id }) else {
+            let user = User(model: apiUser)
+            modelContext.insert(user)
+            return user
+        }
+        user.login = apiUser.login
+        user.name = apiUser.name
+        user.reposUrl = apiUser.reposUrl
+        user.publicRepos = apiUser.publicRepos
+        user.updatedAt = apiUser.updatedAt
+        return user
+    }
 }
 
 #Preview {
     ContentView()
-        .modelContainer(for: UserHistory.self, inMemory: true)
+        .modelContainer(for: [History.self, User.self], inMemory: true)
 }

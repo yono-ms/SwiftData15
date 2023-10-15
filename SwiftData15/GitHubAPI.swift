@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-func gitHubGetUser(user: String) async throws -> [String : Any] {
+func gitHubGetUserDictionary(user: String) async throws -> [String : Any] {
     let response = await AF.request("https://api.github.com/users/\(user)")
         .validate(statusCode: 200 ..< 300)
         .serializingData()
@@ -26,12 +26,12 @@ func gitHubGetUser(user: String) async throws -> [String : Any] {
     }
 }
 
-func gitHubGetUserModel(user: String) async throws -> UserModel {
+func gitHubGetUser(user: String) async throws -> ApiUser {
     let decoder = JSONDecoder()
     decoder.keyDecodingStrategy = .convertFromSnakeCase
     let response = await AF.request("https://api.github.com/users/\(user)")
         .validate(statusCode: 200 ..< 300)
-        .serializingDecodable(UserModel.self, decoder: decoder)
+        .serializingDecodable(ApiUser.self, decoder: decoder)
         .response
     debugPrint(response)
     switch response.result {
@@ -40,6 +40,24 @@ func gitHubGetUserModel(user: String) async throws -> UserModel {
         return data
     case .failure(let error):
         print("gitHubGetUserModel failure")
+        throw error
+    }
+}
+
+func gitHubGetRepos(url: String) async throws -> [ApiRepo] {
+    let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
+    let response = await AF.request(url)
+        .validate(statusCode: 200 ..< 300)
+        .serializingDecodable(Array<ApiRepo>.self, decoder: decoder)
+        .response
+    debugPrint(response)
+    switch response.result {
+    case .success(let data):
+        print("gitHubGetRepoModel success")
+        return data
+    case .failure(let error):
+        print("gitHubGetRepoModel failure")
         throw error
     }
 }
