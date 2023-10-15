@@ -11,7 +11,7 @@ import Foundation
 struct ApiUser: Codable, Identifiable {
     let id: Int
     let login: String
-    let name: String
+    let name: String?
     let reposUrl: String
     let publicRepos: Int
     let updatedAt: String

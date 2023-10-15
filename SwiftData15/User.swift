@@ -23,7 +23,7 @@ final class User {
     init(model: ApiUser) {
         self.id = model.id
         self.login = model.login
-        self.name = model.name
+        self.name = model.name ?? ""
         self.reposUrl = model.reposUrl
         self.publicRepos = model.publicRepos
         self.updatedAt = model.updatedAt

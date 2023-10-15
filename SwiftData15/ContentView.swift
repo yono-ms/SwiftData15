@@ -107,7 +107,7 @@ struct ContentView: View {
             return user
         }
         user.login = apiUser.login
-        user.name = apiUser.name
+        user.name = apiUser.name ?? ""
         user.reposUrl = apiUser.reposUrl
         user.publicRepos = apiUser.publicRepos
         user.updatedAt = apiUser.updatedAt
@@ -117,5 +117,5 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .modelContainer(for: [History.self, User.self], inMemory: true)
+        .modelContainer(for: [History.self, User.self, Repo.self], inMemory: true)
 }
